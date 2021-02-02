@@ -1,0 +1,44 @@
+<!-- fundamentals1.html -->
+
+<header>
+  <h1>Fundamentals 2</h1>
+  <p>Author: #275</p>
+</header>
+
+<body>
+  <svg id = "box" width = 1000 height = 300>  </svg>
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <script type = "text/javascript">
+
+    const array = [92,56,14,73,22,38,93,45,44]
+
+    for(let j = 0; j < array.length; j++){
+      d3.select("#box")
+        .append("circle")
+        .attr("r", (array[j]/2))
+        .attr("cx", (j*100)+50)
+        .attr("cy", 150)
+    }
+
+    let order = [7,5,0,6,1,2,8,3,4] //I assume there's an easier way to do this
+
+    for(let k = 0; k < order.length; k++){
+      let temp = order[k]
+      order[k] = (temp*100) + 50
+    }
+
+    setTimeout(function(){
+      d3.select("#box").selectAll("circle")
+        .data(order)
+        .transition().duration(1500)
+        .attr("cx", d => d)
+        .style("fill", "green")
+    },2000)
+
+  </script>
+
+
+
+</body>

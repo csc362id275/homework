@@ -1,0 +1,38 @@
+<!-- fundamentals1.html -->
+
+<header>
+  <h1>Fundamentals 1</h1>
+  <p>Author: #275</p>
+</header>
+
+<body>
+  <svg id = "box" width = 600 height = 300>  </svg>
+
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <script type="text/javascript">
+    function factors(integ){
+      const intFac = [];
+      for(let i = integ; i > 0; i--){
+        if(integ%i == 0){
+          intFac.push(i)
+        };
+      }
+      return intFac;
+    }
+
+    circs = factors(400)
+    for(e in circs){
+      d3.select("#box")
+        .append("circle")
+        .attr("r", e)
+        .attr("cx", e*10)
+        .attr("cy", 150)
+        .attr("stroke", "blue")
+        .attr("fill","white")
+    }
+  </script>
+
+
+
+</body>
