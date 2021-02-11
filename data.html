@@ -1,0 +1,65 @@
+<!-- #275 -->
+
+<body>
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+
+  <!-- Set up basic webpage structure -->
+
+  <div id="header"></div>
+  <div id="nominal"></div>
+  <div id="ordinal"></div>
+  <div id="interval"></div>
+  <div id="ratio"></div>
+
+  <style>
+    .red {
+        color: white;
+        background-color: #e41a1c;
+    }
+    .green {
+        color: #4daf4a;
+    }
+    .blue {
+        color: white;
+        background-color: #377eb8;
+    }
+    .purple {
+        color: #984ea3;
+    }
+    .black {
+      color: white;
+      background-color: #000000;
+    }
+
+  </style>
+
+  <script type = "text/javascript">
+
+    const colors = ["black", "purple", "blue", "green", "red"]
+    const divId = ["#header", "#nominal", "#ordinal", "#interval", "#ratio"]
+    const divTitle = ["", "Nominal Data", "Ordinal Data", "Interval Data", "Ratio Data"]
+    const divText = ["I love Data Types and Graphic Design!!",
+                      "Nominal data are categorical data. Mathematical operations cannot be performed on them other than counting frequency.",
+                      "Ordinal data are data that represent a position on a spectrum. They cannot be averaged, but a median is representative.",
+                      "Interval data are numerical data representative of a scale. Interval data can be averaged, but they cannot be in a ratio.",
+                      "Ratio data are numerical data. They can be averaged and are meaningful in a ratio."]
+    const divExample = ["", "Example: State names", "Example: How satisfied are you with your dorm? -3 to 3",
+                    "Example: Temperature measured in Farenheit", "Example: Population density"]
+
+
+    const allDiv = d3.selectAll("div")
+
+    allDiv.each(function( d,i){
+      if(i > 0){
+        let curr = d3.select(divId[i])
+        curr.classed(colors[i], true).insert("h1").text(divTitle[i])
+        curr.append("p").text(divText[i]);
+        curr.append("p1").text(divExample[i]);
+
+      }})
+
+    d3.select("#header").classed("black", true).insert("h1").text(divText[0]).style('font-variant', 'small-caps').cla
+
+  </script>
+
+</body>
