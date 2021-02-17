@@ -1,4 +1,5 @@
-<!-- #275 -->
+<!-- Data.html assignment: creating a website about data types, showcasing use of styles and divisions in HTML. -->
+<!--  Author: #275. -->
 
 <body>
   <script src="https://d3js.org/d3.v5.min.js"></script>
@@ -35,6 +36,7 @@
 
   <script type = "text/javascript">
 
+    //creating arrays that contain the content of the webpage. Indexes correlate with same data type across all arrays
     const colors = ["black", "purple", "blue", "green", "red"]
     const divId = ["#header", "#nominal", "#ordinal", "#interval", "#ratio"]
     const divTitle = ["", "Nominal Data", "Ordinal Data", "Interval Data", "Ratio Data"]
@@ -49,16 +51,19 @@
 
     const allDiv = d3.selectAll("div")
 
-    allDiv.each(function( d,i){
-      if(i > 0){
-        let curr = d3.select(divId[i])
-        curr.classed(colors[i], true).insert("h1").text(divTitle[i])
-        curr.append("p").text(divText[i]);
-        curr.append("p1").text(divExample[i]);
+    //using a loop to create the body sections
+    allDiv.each(function( d,i){ //for each division,
+      if(i > 0){ //if the division is not the first one (page header)
+        let curr = d3.select(divId[i]) //select it
+        curr.classed(colors[i], true).insert("h1").text(divTitle[i]) //apply class, add headear
+        curr.append("p").text(divText[i]); //add text (description of data)
+        curr.append("p1").text(divExample[i]); //add text 2 (data example)
 
       }})
-
-    d3.select("#header").classed("black", true).insert("h1").text(divText[0]).style('font-variant', 'small-caps').cla
+    
+    //styling and supplying the text of  the page title
+    d3.select("#header").classed("black", true).insert("h1").text(divText[0]).style('font-variant', 'small-caps') 
+    
 
   </script>
 
